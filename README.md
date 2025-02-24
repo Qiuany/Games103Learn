@@ -51,3 +51,12 @@ https://github.com/user-attachments/assets/33d3cc06-2f8a-402c-83ed-d65b5e423e96
 
 
 这里PBD没有实现stiffness与它需要的和迭代次数有关的调整。
+
+## Lab 3
+stvk能量：
+
+
+https://github.com/user-attachments/assets/df9f3fdc-7fc4-4e5a-bf4a-d4316cfa209d
+
+
+ppt上Hyperelastic公式应该是错的，得自己推一下。SVD分解还是挺慢的，明显感觉到比直接使用矩阵乘法慢。显式积分弹性体的硬度不能太大，否则会炸。
