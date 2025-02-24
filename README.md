@@ -2,18 +2,7 @@
 Labs and notes when learning Games103. 
 边学边写，放一些记录。
 
-## Lab 1
-用rigid body dynamics + impluse做碰撞的效果：
-
-
-https://github.com/user-attachments/assets/b3cfaec7-cc00-43bf-b328-e7736339d63b
-
-
-用shape matching的效果：
-
-
-https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
-
+## 配置环境
 
 我在Windows下使用VSCode写代码，配置的时候参考了一些资料。
 
@@ -34,6 +23,19 @@ https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
 
 - 上传Github记得在每个Unity Project根目录下加Unity的.gitignore，否则上传的东西太多了。  
 [git管理Unity项目的正确方式](https://blog.csdn.net/qq_51326491/article/details/144239802)
+
+## Lab 1
+用rigid body dynamics + impluse做碰撞的效果：
+
+
+https://github.com/user-attachments/assets/b3cfaec7-cc00-43bf-b328-e7736339d63b
+
+
+用shape matching的效果：
+
+
+https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
+
 
 Lab1中rigid body dynamics + Impulse和shape matching两种方法都使用了restitution ($\mu_N$) 和friction ($\mu_T$) 两个系数来控制碰撞，其中shape matching需要restitution显著大于前一种方法。猜测是因为在bunny这个相对比较凸的形状上，每一次碰撞的顶点数较少，一个点对shape matching的影响比较小，需要放大或者改变最小二乘使用的权重。而rigid body dynamics + Impulse实际上已经隐式的保证了碰撞点速度正确，因此正常取个[0, 1]的restitution即可。
 
