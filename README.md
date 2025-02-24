@@ -36,3 +36,27 @@ https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
 [git管理Unity项目的正确方式](https://blog.csdn.net/qq_51326491/article/details/144239802)
 
 Lab1中rigid body dynamics + Impulse和shape matching两种方法都使用了restitution ($\mu_N$) 和friction ($\mu_T$) 两个系数来控制碰撞，其中shape matching需要restitution显著大于前一种方法。猜测是因为在bunny这个相对比较凸的形状上，每一次碰撞的顶点数较少，一个点对shape matching的影响比较小，需要放大或者改变最小二乘使用的权重。而rigid body dynamics + Impulse实际上已经隐式的保证了碰撞点速度正确，因此正常取个[0, 1]的restitution即可。
+
+## Lab 2
+Implicit IP，弹性势能只有弹簧能量：
+
+
+https://github.com/user-attachments/assets/d640bc00-7e8b-40e4-843d-7bc0e88bbc5a
+
+
+PBD：
+
+
+https://github.com/user-attachments/assets/33d3cc06-2f8a-402c-83ed-d65b5e423e96
+
+
+这里PBD没有实现stiffness与它需要的和迭代次数有关的调整。
+
+## Lab 3
+stvk能量：
+
+
+https://github.com/user-attachments/assets/df9f3fdc-7fc4-4e5a-bf4a-d4316cfa209d
+
+
+ppt上Hyperelastic公式应该是错的，得自己推一下。SVD分解还是挺慢的，明显感觉到比直接使用矩阵乘法慢。显式积分弹性体的硬度不能太大，否则会炸。
