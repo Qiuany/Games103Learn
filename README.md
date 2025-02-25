@@ -2,18 +2,7 @@
 Labs and notes when learning Games103. 
 边学边写，放一些记录。
 
-## Lab 1
-用rigid body dynamics + impluse做碰撞的效果：
-
-
-https://github.com/user-attachments/assets/b3cfaec7-cc00-43bf-b328-e7736339d63b
-
-
-用shape matching的效果：
-
-
-https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
-
+## 配置环境
 
 我在Windows下使用VSCode写代码，配置的时候参考了一些资料。
 
@@ -34,6 +23,19 @@ https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
 
 - 上传Github记得在每个Unity Project根目录下加Unity的.gitignore，否则上传的东西太多了。  
 [git管理Unity项目的正确方式](https://blog.csdn.net/qq_51326491/article/details/144239802)
+
+## Lab 1
+用rigid body dynamics + impluse做碰撞的效果：
+
+
+https://github.com/user-attachments/assets/b3cfaec7-cc00-43bf-b328-e7736339d63b
+
+
+用shape matching的效果：
+
+
+https://github.com/user-attachments/assets/9c427ad5-7e39-4268-83a6-6f3fb69cadfc
+
 
 Lab1中rigid body dynamics + Impulse和shape matching两种方法都使用了restitution ($\mu_N$) 和friction ($\mu_T$) 两个系数来控制碰撞，其中shape matching需要restitution显著大于前一种方法。猜测是因为在bunny这个相对比较凸的形状上，每一次碰撞的顶点数较少，一个点对shape matching的影响比较小，需要放大或者改变最小二乘使用的权重。而rigid body dynamics + Impulse实际上已经隐式的保证了碰撞点速度正确，因此正常取个[0, 1]的restitution即可。
 
@@ -59,4 +61,19 @@ stvk能量：
 https://github.com/user-attachments/assets/df9f3fdc-7fc4-4e5a-bf4a-d4316cfa209d
 
 
-ppt上Hyperelastic公式应该是错的，得自己推一下。SVD分解还是挺慢的，明显感觉到比直接使用矩阵乘法慢。显式积分弹性体的硬度不能太大，否则会炸。
+ppt上Hyperelastic公式应该是错的，得自己推一下。
+```math
+E = \frac{1}{2}(F^T F-I),\ \Psi(F) = \mu \Vert E \Vert_F^2 + \frac{\lambda}{2}\text{tr}(E)^2,\ P = F(2\mu E + \lambda \text{tr}(E) I).
+```
+如果做SVD分解，
+```math
+F = U\Sigma V^T,\ \Sigma = \text{diag}\{\lambda_0, \lambda_1, \lambda_2\},\ P = U(\mu \Sigma(\Sigma^2 - I) + \frac{\lambda}{2}\text{tr}(\Sigma^2 - I)\Sigma)V^T.
+```
+SVD分解还是挺慢的，明显感觉到比直接使用矩阵乘法慢。显式积分弹性体的硬度不能太大，否则会炸。
+
+## Lab 4
+
+
+https://github.com/user-attachments/assets/cd7d7281-382e-47ed-882e-94d0970e49ee
+
+
