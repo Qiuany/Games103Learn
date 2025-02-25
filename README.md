@@ -70,3 +70,10 @@ E = \frac{1}{2}(F^T F-I),\ \Psi(F) = \mu \Vert E \Vert_F^2 + \frac{\lambda}{2}\t
 F = U\Sigma V^T,\ \Sigma = \text{diag}\{\lambda_0, \lambda_1, \lambda_2\},\ P = U(\mu \Sigma(\Sigma^2 - I) + \frac{\lambda}{2}\text{tr}(\Sigma^2 - I)\Sigma)V^T.
 ```
 SVD分解还是挺慢的，明显感觉到比直接使用矩阵乘法慢。显式积分弹性体的硬度不能太大，否则会炸。
+
+## Lab 4
+
+
+https://github.com/user-attachments/assets/cd7d7281-382e-47ed-882e-94d0970e49ee
+
+
